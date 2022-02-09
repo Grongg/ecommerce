@@ -45,7 +45,7 @@
                         <img src="{{ category.image }}" alt="" class="w-100 imageCard">
                     </div>
                     <div class="card-footer">
-                        <a href="{{ path('customer_category',{ 'id' : category.id }) }}">Consulter</a>
+                        <a href="{{ path('customer_category',{ 'id' : category.id }) }}" class="btn btn-primary w-100">Consulter</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                         <p>Catégorie : {{ product.category.name }}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="{{ path('customer_product',{ 'id' : product.id }) }}">Consulter</a>
+                        <a href="{{ path('customer_product',{ 'id' : product.id }) }}" class="btn btn-primary w-100">Consulter</a>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                         <img src="{{ video.image }}" alt="" class="w-100 imageCard">
                     </div>
                     <div class="card-footer">
-                        <a href="{{ path('customer_video',{ 'id' : video.id }) }}">Consulter</a>
+                        <a href="{{ path('customer_video',{ 'id' : video.id }) }}" class="btn btn-primary w-100">Consulter</a>
                     </div>
                 </div>
             </div>
