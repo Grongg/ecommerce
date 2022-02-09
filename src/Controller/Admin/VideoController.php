@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Video;
 use App\Form\VideoType;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/video')]
+#[Route('/admin/video')]
 class VideoController extends AbstractController
 {
     #[Route('/', name: 'video_index', methods: ['GET'])]
