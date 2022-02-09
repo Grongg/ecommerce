@@ -15,9 +15,10 @@ class CommentType extends AbstractType
         $builder
             ->add('content',TextType::class,[
                 'required' => false,
-                'label' => 'Ajouter un commentaire',
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Votre commentaire...'
+                    'class' => 'commentInput',
+                    'placeholder' => 'Ajouter un commentaire public...'
                 ]
             ])
         ;

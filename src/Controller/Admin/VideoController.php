@@ -6,28 +6,19 @@ use App\Entity\Video;
 use App\Form\VideoType;
 use App\Repository\VideoRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/video')]
 class VideoController extends AbstractController
 {
     #[Route('/', name: 'video_index', methods: ['GET'])]
-    public function index(VideoRepository $videoRepository,
-                        PaginatorInterface $paginator, 
-                        Request $request): Response
+    public function index(VideoRepository $videoRepository): Response
     {
-        $videos = $paginator->paginate(
-            $videoRepository->findAll(),
-            $request->query->getInt('page', 1),
-            3
-        );
-
         return $this->render('video/index.html.twig', [
-            'videos' => $videos
+            'videos' => $videoRepository->findAll(),
         ]);
     }
 

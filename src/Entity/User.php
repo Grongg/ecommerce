@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @UniqueEntity(fields={"email"}, message="Il existe deja un compte avec cet email")
+ * @UniqueEntity(fields={"email"}, message="Il existe déjà un compte avec cet email")
  */
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -23,7 +23,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
-    #[Assert\NotBlank(message:'Le champ email est requis')]
+    #[Assert\NotBlank(message: 'Le champs email est requis.')]
     private $email;
 
     #[ORM\Column(type: 'json')]
@@ -33,11 +33,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message:'Le champ email est requis')]
+    #[Assert\NotBlank(message: 'Le champs nom est requis.')]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message:'Le champ email est requis')]
+    #[Assert\NotBlank(message: 'Le champs pseudo est requis.')]
     private $pseudo;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class, orphanRemoval: true)]

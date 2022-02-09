@@ -2,18 +2,18 @@
 
 namespace App\Controller;
 
-use App\Repository\VideoRepository;
-use App\Repository\ProductRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
+use App\Repository\VideoRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
     public function index(CategoryRepository $categoryRepository,
-                        ProductRepository $productRepository, 
+                        ProductRepository $productRepository,
                         VideoRepository $videoRepository): Response
     {
         $products = $productRepository->findBy([],[
@@ -22,7 +22,7 @@ class HomeController extends AbstractController
         6);
 
         $videos = $videoRepository->findBy([],[
-            'id' => 'DESC'
+            'id' => 'DESC',
         ],
         6);
 
@@ -33,4 +33,3 @@ class HomeController extends AbstractController
         ]);
     }
 }
-

@@ -2,12 +2,11 @@
 
 namespace App\Entity;
 
+use App\Repository\VideoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\VideoRepository;
 use Symfony\Component\Validator\Constraints as Assert;
-
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
 class Video
@@ -18,15 +17,15 @@ class Video
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Le champ categorie est requis')]
+    #[Assert\NotBlank(message: 'Le champs nom est requis.')]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Le champ categorie est requis')]
+    #[Assert\NotBlank(message: 'Le champs codeYoutube est requis.')]
     private $codeYoutube;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Le champ categorie est requis')]
+    #[Assert\NotBlank(message: 'Le champs image est requis.')]
     private $image;
 
     #[ORM\OneToMany(mappedBy: 'video', targetEntity: Comment::class, orphanRemoval: true)]

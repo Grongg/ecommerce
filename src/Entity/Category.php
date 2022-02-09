@@ -8,7 +8,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
 {
@@ -18,11 +17,11 @@ class Category
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Le champ nom est requis')]
+    #[Assert\NotBlank(message: 'Le champs nom est requis.')]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Le champ image est requis')]
+    #[Assert\NotBlank(message: 'Le champs image est requis.')]
     private $image;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class, orphanRemoval: true)]
@@ -91,4 +90,5 @@ class Category
 
         return $this;
     }
+
 }

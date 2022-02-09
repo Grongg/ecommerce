@@ -32,32 +32,32 @@
 
 <div class="container py-5">
   <div class="row">
-        <div class="col-12 pb-5">
-          <h3 class="text-center">Découvrir le Japon</h3>
-        </div>
-        {% for category in categories %}
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>{{ category.name }}</h5>
-                    </div>
-                    <div class="card-body">
-                        <img src="{{ category.image }}" alt="" class="w-100 imageCard">
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ path('customer_category',{ 'id' : category.id }) }}" class="btn btn-primary w-100">Consulter</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+      <div class="col-12 pb-5">
+        <h3 class="text-center">Découvrir le Japon</h3>
+      </div>
+      {% for category in categories %}
+          <div class="col-4">
+              <div class="card">
+                  <div class="card-header">
+                      <h5>{{ category.name }}</h5>
+                  </div>
+                  <div class="card-body">
+                      <img src="{{ category.image }}" alt="" class="w-100 imageCard">
+                  </div>
+                  <div class="card-footer">
+                      <a href="{{ path('customer_category',{ 'id' : category.id }) }}" class="btn btn-primary w-100">Consulter</a>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+  </div>
 </div>
 
 <section class="bg-secondary">
   <div class="container py-5">
        <div class="row">
       <div class="col-12 pb-5">
-        <h3 class="text-center text-white">Les nouveautés</h3>
+        <h3 class="text-center text-white">Les nouveaux produits</h3>
       </div>
        {% for product in products %}
             <div class="col-4 mt-2">
@@ -73,7 +73,7 @@
                         <p>Catégorie : {{ product.category.name }}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="{{ path('customer_product',{ 'id' : product.id }) }}" class="btn btn-primary w-100">Consulter</a>
+                        <a href="{{ path('customer_product',{ 'id' : product.id })  }}" class="btn btn-info w-100">Consulter</a>
                     </div>
                 </div>
             </div>
@@ -82,11 +82,11 @@
   </div>
 </section>
 
-<section class="bg-secondary">
+<section class="bg-dark">
   <div class="container py-5">
        <div class="row">
       <div class="col-12 pb-5">
-        <h3 class="text-center text-white">Les Videos</h3>
+        <h3 class="text-center text-white">Les nouveaux Vlogs</h3>
       </div>
        {% for video in videos %}
             <div class="col-4 mt-2">
@@ -98,7 +98,7 @@
                         <img src="{{ video.image }}" alt="" class="w-100 imageCard">
                     </div>
                     <div class="card-footer">
-                        <a href="{{ path('customer_video',{ 'id' : video.id }) }}" class="btn btn-primary w-100">Consulter</a>
+                        <a href="{{ path('customer_video_visionner',{ 'id' : video.id })  }}" class="btn btn-info w-100">Consulter</a>
                     </div>
                 </div>
             </div>
@@ -106,5 +106,6 @@
     </div>
   </div>
 </section>
+
 
 {% endblock %}

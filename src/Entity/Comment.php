@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use App\Repository\CommentRepository;
-use Symfony\Component\Validator\Constraints\DateTime;
+use DateTimeImmutable;
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
@@ -28,7 +28,7 @@ class Comment
     private $createdAt;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message : 'Le champ est requis')]
+    #[Assert\NotBlank(message: 'Le champs contenu est requis')]
     private $content;
 
     #[ORM\PrePersist]
@@ -36,7 +36,7 @@ class Comment
     {
         if(empty($this->createdAt))
         {
-            $this->createdAt = new DateTime();
+            $this->createdAt = new DateTimeImmutable();
         }
     }
 
